@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REMAX RT-D01 | لا تفقد أغراضك أبداً</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04060e;--card:#0d1117;--border:rgba(255,255,255,0.07);
+  --blue:#3b82f6;--blue2:#1d4ed8;--cyan:#06b6d4;
+  --orange:#f97316;--red:#ef4444;--green:#22c55e;--gold:#f59e0b;
+  --white:#f8fafc;--grey:#94a3b8;--glow:rgba(59,130,246,0.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Cairo',sans-serif;direction:rtl;overflow-x:hidden}
+
+/* NAVBAR */
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(4,6,14,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:12px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:'Tajawal',sans-serif;font-size:1.3rem;font-weight:900;color:var(--blue)}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--cyan));color:white;border:none;padding:11px 28px;border-radius:100px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px var(--glow)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--glow)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 40px 60px}
+.hero-bg-img{position:absolute;inset:0;z-index:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover;filter:brightness(0.12) saturate(1.3)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(4,6,14,0.97) 0%,rgba(4,6,14,0.7) 50%,rgba(4,6,14,0.93) 100%)}
+.hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
+.particle{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.6),transparent);animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:0.3}100%{transform:translateY(-100px) scale(1);opacity:0}}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:2px;padding:6px 18px;border-radius:100px;margin-bottom:20px;text-transform:uppercase;animation:fadeSlide .6s ease both}
+.hero-title{font-family:'Tajawal',sans-serif;font-size:clamp(2.8rem,5.5vw,5rem);font-weight:900;line-height:1.05;margin-bottom:12px;animation:fadeSlide .7s ease both}
+.hero-title .l1{display:block;color:var(--white)}
+.hero-title .l2{display:block;color:var(--blue);text-shadow:0 0 60px rgba(59,130,246,0.5)}
+.hero-title .l3{display:block;color:var(--white)}
+.hero-sub{color:var(--grey);font-size:1.05rem;line-height:1.85;margin-bottom:28px;animation:fadeSlide .8s ease both}
+.hero-price-box{display:inline-flex;align-items:center;gap:16px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:14px;padding:14px 22px;margin-bottom:28px;animation:fadeSlide .85s ease both;flex-wrap:wrap}
+.hp-old{font-size:1.1rem;color:var(--grey);text-decoration:line-through;opacity:.55}
+.hp-new{font-family:'Tajawal',sans-serif;font-size:2.2rem;font-weight:900;color:var(--green)}
+.hp-save{background:var(--red);color:white;font-size:11px;font-weight:800;padding:4px 10px;border-radius:6px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeSlide .9s ease both}
+.btn-main{background:linear-gradient(135deg,var(--blue),var(--cyan));color:white;border:none;padding:16px 36px;border-radius:100px;font-family:'Cairo',sans-serif;font-size:17px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 40px var(--glow);transition:all .3s}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 16px 50px var(--glow)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.2);padding:16px 28px;border-radius:100px;font-family:'Cairo',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+@keyframes fadeSlide{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+
+/* 3D PRODUCT */
+.product-3d{display:flex;align-items:center;justify-content:center;animation:floatAnim 5s ease-in-out infinite}
+@keyframes floatAnim{0%,100%{transform:translateY(0) rotateY(0deg)}25%{transform:translateY(-15px) rotateY(5deg)}75%{transform:translateY(-8px) rotateY(-5deg)}}
+.product-stage{position:relative;width:340px;height:340px;display:flex;align-items:center;justify-content:center}
+.ring-orbit{position:absolute;border-radius:50%;border:1px solid;animation:orbit linear infinite}
+.ring1{width:320px;height:320px;border-color:rgba(59,130,246,0.15);animation-duration:20s}
+.ring2{width:260px;height:260px;border-color:rgba(6,182,212,0.2);animation-duration:14s;animation-direction:reverse}
+.ring3{width:200px;height:200px;border-color:rgba(59,130,246,0.25);animation-duration:9s}
+@keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.ring1::after,.ring2::after,.ring3::after{content:'';position:absolute;top:-5px;left:50%;width:8px;height:8px;border-radius:50%;transform:translateX(-50%)}
+.ring1::after{background:var(--blue);box-shadow:0 0 12px var(--blue)}
+.ring2::after{background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.ring3::after{background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.product-core{position:relative;z-index:10;background:linear-gradient(145deg,#1e3a5f,#0a1628,#1a2744);border-radius:28px;width:180px;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(59,130,246,0.3),0 0 60px rgba(59,130,246,0.25),0 30px 60px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.08);transform:perspective(500px) rotateX(8deg)}
+.product-emoji{font-size:80px;margin-bottom:8px;filter:drop-shadow(0 8px 25px rgba(59,130,246,0.7))}
+.product-label{font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:1.5px}
+.product-shadow{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:140px;height:20px;background:radial-gradient(ellipse,rgba(59,130,246,0.4),transparent 70%);filter:blur(8px)}
+.float-tags{position:absolute;inset:0;z-index:15}
+.ftag{position:absolute;background:rgba(13,17,23,0.9);backdrop-filter:blur(10px);border:1px solid rgba(59,130,246,0.25);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;white-space:nowrap;animation:ftag-float ease-in-out infinite alternate}
+.ftag1{top:10%;left:-15px;color:var(--cyan);animation-duration:3s}
+.ftag2{top:48%;right:-15px;color:var(--green);animation-duration:3.5s}
+.ftag3{bottom:12%;left:5%;color:var(--gold);animation-duration:2.8s}
+@keyframes ftag-float{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+
+/* SECTIONS */
+.sec{padding:90px 40px;max-width:1200px;margin:0 auto}
+.sec-tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:14px}
+.tag-red{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.25)}
+.tag-blue{background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.25)}
+.tag-green{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.tag-orange{background:rgba(249,115,22,.12);color:var(--orange);border:1px solid rgba(249,115,22,.25)}
+.tag-gold{background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.25)}
+.big-title{font-family:'Tajawal',sans-serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:900;line-height:1.15;margin-bottom:16px}
+.big-sub{color:var(--grey);font-size:1.05rem;line-height:1.85;max-width:640px;margin-bottom:48px}
+
+/* PAIN */
+.pain-wrap{position:relative;overflow:hidden;padding:90px 0}
+.pain-bg-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1400&q=60') center/cover;filter:brightness(0.07) saturate(0.5)}
+.pain-fade{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,rgba(4,6,14,.93) 20%,rgba(4,6,14,.93) 80%,var(--bg) 100%)}
+.pain-content{position:relative;z-index:2;padding:0 40px;max-width:1200px;margin:0 auto}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pain-card{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(239,68,68,.15);background:rgba(13,17,23,.85);backdrop-filter:blur(10px);transition:transform .3s,border-color .3s,box-shadow .3s}
+.pain-card:hover{transform:translateY(-6px);border-color:rgba(239,68,68,.4);box-shadow:0 20px 50px rgba(239,68,68,.12)}
+.pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#ff6b35)}
+.pain-img{width:100%;height:175px;object-fit:cover;filter:brightness(0.45) saturate(0.7);transition:filter .3s;display:block}
+.pain-card:hover .pain-img{filter:brightness(0.6) saturate(1)}
+.pain-body{padding:22px 20px}
+.pain-ico{font-size:30px;margin-bottom:10px;display:block}
+.pain-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.pain-card p{font-size:13.5px;color:var(--grey);line-height:1.75}
+
+/* BRIDGE */
+.bridge{text-align:center;padding:70px 40px;background:linear-gradient(135deg,rgba(59,130,246,.05),rgba(6,182,212,.03));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.bridge-word{font-family:'Tajawal',sans-serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:14px;animation:glow-txt 3s ease-in-out infinite alternate}
+@keyframes glow-txt{from{filter:drop-shadow(0 0 20px rgba(59,130,246,.3))}to{filter:drop-shadow(0 0 60px rgba(59,130,246,.7))}}
+.bridge p{color:var(--grey);font-size:1.1rem}
+
+/* PRODUCT SHOWCASE */
+.showcase{position:relative;overflow:hidden;padding:80px 40px;background:linear-gradient(135deg,#060c1a,#04060e);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sc-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.sc-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:420px}
+.sc-main{grid-row:1/3;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 0 0 1px rgba(59,130,246,.2),0 30px 60px rgba(0,0,0,.5)}
+.sc-small{border-radius:16px;overflow:hidden;position:relative;box-shadow:0 0 0 1px rgba(59,130,246,.15)}
+.sc-main img,.sc-small img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+.sc-main:hover img,.sc-small:hover img{transform:scale(1.06)}
+.sc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(4,6,14,.8));pointer-events:none}
+.sc-badge{position:absolute;bottom:12px;right:12px;background:rgba(4,6,14,.85);backdrop-filter:blur(8px);border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--cyan)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.stat-box{border-radius:12px;padding:16px;text-align:center}
+.stat-box .sv{font-family:'Tajawal',sans-serif;font-size:2rem;font-weight:900;line-height:1}
+.stat-box .sl{font-size:12px;color:var(--grey);margin-top:4px}
+
+/* FEATURES */
+.feat-wrap{background:var(--bg);padding:80px 40px}
+.feat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat-card{background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(6,182,212,.02));border:1px solid rgba(59,130,246,.12);border-radius:20px;padding:30px 24px;transition:all .3s;position:relative;overflow:hidden}
+.feat-card:hover{border-color:rgba(59,130,246,.35);transform:translateY(-5px);box-shadow:0 24px 50px rgba(59,130,246,.1)}
+.feat-ico{width:58px;height:58px;border-radius:16px;background:rgba(59,130,246,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;transition:transform .3s}
+.feat-card:hover .feat-ico{transform:scale(1.15) rotate(-5deg)}
+.feat-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.feat-card p{font-size:13.5px;color:var(--grey);line-height:1.75}
+
+/* STEPS */
+.steps-wrap{padding:80px 40px;background:linear-gradient(180deg,#060c1a,var(--bg))}
+.steps-inner{max-width:1200px;margin:0 auto}
+.steps-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:48px}
+.steps-track::before{content:'';position:absolute;top:40px;right:12%;left:12%;height:2px;background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),transparent);z-index:0}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-bub{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Tajawal',sans-serif;font-size:28px;font-weight:900;margin:0 auto 20px;box-shadow:0 0 0 4px rgba(59,130,246,.15),0 0 40px var(--glow);position:relative}
+.step-bub::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(59,130,246,.2)}
+.step h3{font-size:15px;font-weight:800;margin-bottom:8px}
+.step p{font-size:13px;color:var(--grey);line-height:1.7}
+
+/* SPECS */
+.specs-wrap{padding:80px 40px}
+.specs-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.specs-table{border-radius:20px;overflow:hidden;border:1px solid var(--border)}
+.spec-row{display:flex;padding:15px 22px;border-bottom:1px solid var(--border);transition:background .2s;align-items:center}
+.spec-row:last-child{border-bottom:none}
+.spec-row:hover{background:rgba(59,130,246,.04)}
+.spec-k{width:45%;font-size:13px;color:var(--grey);font-weight:500}
+.spec-v{font-size:14px;font-weight:700;color:var(--white)}
+.spec-photo{border-radius:24px;overflow:hidden;position:relative;box-shadow:0 0 0 1px rgba(59,130,246,.2),0 30px 60px rgba(0,0,0,.5)}
+.spec-photo img{width:100%;height:360px;object-fit:cover;display:block}
+.spec-photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(4,6,14,.9))}
+.spec-photo-cap{position:absolute;bottom:20px;right:0;left:0;text-align:center;font-family:'Tajawal',sans-serif;font-size:1.2rem;font-weight:800;color:var(--cyan)}
+
+/* TESTIMONIALS */
+.testi-wrap{padding:80px 40px;background:linear-gradient(135deg,#060c1a,var(--bg));border-top:1px solid var(--border)}
+.testi-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;transition:transform .3s,border-color .3s}
+.testi-card:hover{transform:translateY(-4px);border-color:rgba(59,130,246,.3)}
+.stars{color:var(--gold);font-size:18px;margin-bottom:14px;letter-spacing:2px}
+.testi-card p{font-size:14px;color:#cbd5e1;line-height:1.85;margin-bottom:20px;font-style:italic}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.t-name{font-size:14px;font-weight:700}
+.t-role{font-size:12px;color:var(--grey)}
+
+/* PRICE */
+.price-wrap{padding:80px 40px;background:linear-gradient(135deg,#050f05,#04060e);border-top:1px solid rgba(34,197,94,.15);border-bottom:1px solid rgba(34,197,94,.15);position:relative;overflow:hidden}
+.price-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(34,197,94,.05),transparent 70%)}
+.price-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.price-badge{display:inline-block;background:var(--red);color:white;font-size:13px;font-weight:800;padding:8px 22px;border-radius:100px;margin-bottom:28px;animation:badge-pulse 2s ease-in-out infinite}
+@keyframes badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5)}50%{box-shadow:0 0 0 12px rgba(239,68,68,0)}}
+.price-row{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.p-old{font-size:2rem;color:var(--grey);text-decoration:line-through;opacity:.5}
+.p-new{font-family:'Tajawal',sans-serif;font-size:clamp(4rem,9vw,6.5rem);font-weight:900;color:var(--green);text-shadow:0 0 40px rgba(34,197,94,.4);line-height:1}
+.p-cur{font-family:'Tajawal',sans-serif;font-size:1.8rem;font-weight:800;color:var(--green);align-self:flex-end;padding-bottom:12px}
+.p-save{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:var(--green);font-size:15px;font-weight:800;padding:8px 22px;border-radius:100px;margin-bottom:24px}
+.perks{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:28px}
+.perk{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--grey)}
+.urgency{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);border-radius:12px;padding:14px 22px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;color:var(--orange);font-weight:700}
+
+/* FORM */
+.form-wrap-out{padding:80px 40px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg),#060c1a)}
+.form-wrap-out::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:1000px;height:1000px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.05),transparent 70%);pointer-events:none}
+.form-inner{max-width:620px;margin:0 auto;position:relative;z-index:1}
+.form-card{background:rgba(13,17,23,.95);border:1px solid rgba(59,130,246,.2);border-radius:28px;padding:50px 46px;box-shadow:0 0 100px rgba(59,130,246,.08)}
+.fg{margin-bottom:22px}
+.fg label{display:block;font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:9px}
+.fg label em{color:var(--red);font-style:normal}
+.fg input,.fg select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:15px 18px;color:var(--white);font-family:'Cairo',sans-serif;font-size:15px;outline:none;direction:rtl;transition:border-color .2s,box-shadow .2s,background .2s}
+.fg input:focus,.fg select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.12);background:rgba(59,130,246,.04)}
+.fg select option{background:#1e293b;color:white}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--blue),var(--cyan));color:white;border:none;padding:20px;border-radius:14px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:900;cursor:pointer;transition:all .3s;box-shadow:0 8px 40px var(--glow);margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 16px 50px var(--glow)}
+.form-trust{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:20px;flex-wrap:wrap}
+.trust-i{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey)}
+#success-msg{display:none;text-align:center;padding:48px 20px}
+#success-msg .s-ico{font-size:64px;margin-bottom:16px;animation:pop .5s ease}
+@keyframes pop{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+#success-msg h3{font-family:'Tajawal',sans-serif;font-size:1.8rem;font-weight:900;color:var(--green);margin-bottom:12px}
+#success-msg p{color:var(--grey);line-height:1.85;font-size:14.5px}
+
+/* FOOTER */
+footer{background:rgba(4,6,14,.98);border-top:1px solid var(--border);text-align:center;padding:32px;color:var(--grey);font-size:13px;line-height:2}
+footer strong{color:var(--blue)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-r{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal-r.visible{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner,.sc-grid,.specs-inner{grid-template-columns:1fr}
+  .product-3d{order:-1}
+  .pain-grid,.feat-grid,.testi-grid{grid-template-columns:1fr 1fr}
+  .steps-track{grid-template-columns:1fr 1fr}
+  .steps-track::before{display:none}
+}
+@media(max-width:600px){
+  nav{padding:12px 20px}
+  .hero,.pain-content,.feat-wrap,.steps-wrap,.specs-wrap,.testi-wrap,.price-wrap,.form-wrap-out,.showcase{padding-right:20px;padding-left:20px}
+  .pain-grid,.feat-grid,.testi-grid,.steps-track{grid-template-columns:1fr}
+  .form-card{padding:28px 20px}
+  .p-new{font-size:4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-brand">📍 ريماكس تراكر · المغرب</div>
+  <button class="nav-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">اطلب الآن — 399 درهم</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">🇲🇦 حصري للمغرب · توصيل مجاني · دفع عند الاستلام</div>
+      <h1 class="hero-title">
+        <span class="l1">لا تفقد</span>
+        <span class="l2">أغراضك</span>
+        <span class="l3">أبداً مرة أخرى</span>
+      </h1>
+      <p class="hero-sub">REMAX RT-D01 — جهاز تتبع ذكي بتقنية بلوتوث 5.2. صغير كالعملة، يُنبّهك فور ابتعادك عن مفاتيحك أو محفظتك. حيث ذهبت أغراضك، ستعرف.</p>
+      <div class="hero-price-box">
+        <span class="hp-old">599 درهم</span>
+        <span class="hp-new">399 درهم</span>
+        <span class="hp-save">وفّر 200 درهم</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#order" class="btn-main" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'});return false">🛒 اطلب الآن</a>
+        <a href="#pain" class="btn-outline" onclick="document.getElementById('pain').scrollIntoView({behavior:'smooth'});return false">اكتشف المزيد ↓</a>
+      </div>
+    </div>
+    <div class="product-3d">
+      <div class="product-stage">
+        <div class="ring-orbit ring1"></div>
+        <div class="ring-orbit ring2"></div>
+        <div class="ring-orbit ring3"></div>
+        <div class="product-core">
+          <div class="product-emoji">📡</div>
+          <div class="product-label">REMAX RT-D01</div>
+        </div>
+        <div class="product-shadow"></div>
+        <div class="float-tags">
+          <div class="ftag ftag1">📶 Bluetooth 5.2</div>
+          <div class="ftag ftag2">✅ 10م نطاق</div>
+          <div class="ftag ftag3">⚡ 7.5غ خفيف</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<div class="pain-wrap" id="pain">
+  <div class="pain-bg-img"></div>
+  <div class="pain-fade"></div>
+  <div class="pain-content">
+    <div class="reveal" style="margin-bottom:48px">
+      <div class="sec-tag tag-red">😰 المشاكل اليومية</div>
+      <h2 class="big-title" style="font-size:clamp(2.5rem,5vw,4.5rem)">كم مرة<br><span style="color:var(--red)">عشت هذا؟</span></h2>
+      <p class="big-sub">كل يوم ملايين المغاربة يضيعون وقتاً وأعصاباً في البحث عن أغراضهم.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <img class="pain-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70" alt="مفاتيح" onerror="this.style.height='60px';this.style.background='#1a0606'"/>
+        <div class="pain-body"><span class="pain-ico">🔑</span><h3>مفاتيح ضائعة في أسوأ لحظة</h3><p>تأخّرت عن العمل أو الدراسة — فقط لأنك لا تجد مفاتيحك.</p></div>
+      </div>
+      <div class="pain-card reveal">
+        <img class="pain-img" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=70" alt="حقيبة" onerror="this.style.height='60px';this.style.background='#1a0606'"/>
+        <div class="pain-body"><span class="pain-ico">👜</span><h3>تركت حقيبتك في مكان لا تتذكره</h3><p>في الحافلة، المقهى أو المكتب — وتذكّرت بعد أن ابتعدت كثيراً.</p></div>
+      </div>
+      <div class="pain-card reveal">
+        <img class="pain-img" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=70" alt="محفظة" onerror="this.style.height='60px';this.style.background='#1a0606'"/>
+        <div class="pain-body"><span class="pain-ico">💳</span><h3>محفظتك اختفت مع كل ما فيها</h3><p>فقدان المحفظة يعني فقدان البطاقات والنقود والوثائق دفعة واحدة.</p></div>
+      </div>
+      <div class="pain-card reveal">
+        <img class="pain-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=70" alt="وقت" onerror="this.style.height='60px';this.style.background='#1a0606'"/>
+        <div class="pain-body"><span class="pain-ico">⏰</span><h3>10 دقائق ضائعة كل يوم!</h3><p>أي 60 ساعة في السنة تُهدر في البحث عن الأغراض. وقت حياتك يضيع!</p></div>
+      </div>
+      <div class="pain-card reveal">
+        <img class="pain-img" src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=600&q=70" alt="توتر" onerror="this.style.height='60px';this.style.background='#1a0606'"/>
+        <div class="pain-body"><span class="pain-ico">😤</span><h3>توتر مزمن كل يوم</h3><p>القلق على الممتلكات يؤثر على تركيزك في العمل والدراسة ويسرق راحة بالك.</p></div>
+      </div>
+      <div class="pain-card reveal">
+        <img class="pain-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=70" alt="عائلة" onerror="this.style.height='60px';this.style.background='#1a0606'"/>
+        <div class="pain-body"><span class="pain-ico">👶</span><h3>قلق دائم على أحبائك</h3><p>حقيبة طفلك، مستلزماتك الثمينة — دائماً قلق بدون حاجة.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRIDGE -->
+<div class="bridge">
+  <div class="bridge-word reveal">الحل هنا</div>
+  <p class="reveal" style="margin-top:10px">تقنية ذكية بحجم العملة — تضع راحة بالك في جيبك</p>
+</div>
+
+<!-- PRODUCT SHOWCASE -->
+<div class="showcase" id="product">
+  <div class="sc-grid reveal">
+    <div class="sc-imgs">
+      <div class="sc-main">
+        <img src="https://images.unsplash.com/photo-1612831455359-970e23a1e4e9?w=700&q=80" alt="tracker" onerror="this.src='https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=700&q=80'"/>
+        <div class="sc-overlay"></div>
+        <div class="sc-badge">الجهاز الرسمي RT-D01</div>
+      </div>
+      <div class="sc-small">
+        <img src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=400&q=80" alt="app"/>
+        <div class="sc-overlay"></div>
+        <div class="sc-badge">تطبيق iSearching</div>
+      </div>
+      <div class="sc-small">
+        <img src="https://images.unsplash.com/photo-1614278735840-29c0c0f7f14c?w=400&q=80" alt="lifestyle" onerror="this.src='https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80'"/>
+        <div class="sc-overlay"></div>
+        <div class="sc-badge">على المفاتيح</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-tag tag-blue">✅ الحل الذكي</div>
+      <h2 class="big-title">REMAX RT-D01<br><span style="color:var(--blue)">في حجم العملة</span></h2>
+      <p class="big-sub">بلوتوث 5.2 الأحدث. وزنه 7.5 غرام فقط. يتصل بهاتفك ويُنبّهك فور ابتعادك عن أغراضك.</p>
+      <div class="stats-grid">
+        <div class="stat-box" style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15)"><div class="sv" style="color:var(--cyan)">10م</div><div class="sl">نطاق البلوتوث</div></div>
+        <div class="stat-box" style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15)"><div class="sv" style="color:var(--green)">7.5g</div><div class="sl">الوزن فقط</div></div>
+        <div class="stat-box" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15)"><div class="sv" style="color:var(--gold)">5.2</div><div class="sl">جيل البلوتوث</div></div>
+        <div class="stat-box" style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15)"><div class="sv" style="color:var(--red)">25+</div><div class="sl">سنة خبرة REMAX</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="feat-wrap" id="features">
+  <div style="max-width:1200px;margin:0 auto" class="reveal">
+    <div class="sec-tag tag-blue">⚡ المميزات</div>
+    <h2 class="big-title">كل ما تحتاجه<br><span style="color:var(--cyan)">في جهاز واحد</span></h2>
+    <p class="big-sub">6 ميزات ذكية مصممة لتبقيك دائماً على اطلاع بأغراضك المهمة.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card reveal"><div class="feat-ico">📍</div><h3>تحديد موقع فوري</h3><p>اعرف مكان أغراضك على الخريطة مباشرة من هاتفك في ثوانٍ معدودة.</p></div>
+    <div class="feat-card reveal"><div class="feat-ico">🔔</div><h3>إنذار الابتعاد التلقائي</h3><p>هاتفك يُنبّهك فور ابتعادك عن الجهاز. لا تنسى شيئاً في أي مكان.</p></div>
+    <div class="feat-card reveal"><div class="feat-ico">🔁</div><h3>بحث في الاتجاهين</h3><p>ابحث عن هاتفك من الجهاز، أو عن الجهاز من هاتفك. يعمل في كلا الاتجاهين!</p></div>
+    <div class="feat-card reveal"><div class="feat-ico">🎙️</div><h3>تسجيل صوتي عن بُعد</h3><p>ميزة فريدة: استخدمه مسجّلاً صوتياً عن مسافة. مفيد في الاجتماعات والمحاضرات.</p></div>
+    <div class="feat-card reveal"><div class="feat-ico">📱</div><h3>iPhone وAndroid</h3><p>متوافق مع جميع الهواتف. حمّل iSearching المجاني وابدأ فوراً.</p></div>
+    <div class="feat-card reveal"><div class="feat-ico">🛡️</div><h3>ضمان 6 أشهر</h3><p>نثق في الجودة. كل جهاز مضمون لمدة 6 أشهر كاملة.</p></div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="steps-wrap" id="how">
+  <div class="steps-inner">
+    <div class="reveal">
+      <div class="sec-tag tag-orange">⚙️ كيف يعمل؟</div>
+      <h2 class="big-title">4 خطوات.<br><span style="color:var(--orange)">راحة بال دائمة.</span></h2>
+    </div>
+    <div class="steps-track">
+      <div class="step reveal"><div class="step-bub">١</div><h3>علّق الجهاز</h3><p>على مفاتيحك، محفظتك أو حقيبتك</p></div>
+      <div class="step reveal"><div class="step-bub">٢</div><h3>حمّل التطبيق</h3><p>iSearching — مجاني كلياً</p></div>
+      <div class="step reveal"><div class="step-bub">٣</div><h3>اربط بهاتفك</h3><p>في ثانية واحدة عبر بلوتوث 5.2</p></div>
+      <div class="step reveal"><div class="step-bub">٤</div><h3>ابق مرتاحاً</h3><p>أغراضك دائماً في متناولك</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECS -->
+<div class="specs-wrap" id="specs">
+  <div class="specs-inner">
+    <div class="reveal">
+      <div class="sec-tag tag-gold" style="margin-bottom:14px">📋 المواصفات</div>
+      <h2 class="big-title">تقنية<br><span style="color:var(--blue)">متطورة</span></h2>
+      <p style="color:var(--grey);font-size:14px;line-height:1.8;margin-bottom:28px">مصمم بدقة من شركة REMAX ذات الخبرة 25+ سنة في التقنيات الذكية.</p>
+      <div class="specs-table">
+        <div class="spec-row"><span class="spec-k">الموديل</span><span class="spec-v">REMAX RT-D01</span></div>
+        <div class="spec-row"><span class="spec-k">البلوتوث</span><span class="spec-v">📶 الجيل 5.2</span></div>
+        <div class="spec-row"><span class="spec-k">النطاق</span><span class="spec-v">📡 10 أمتار</span></div>
+        <div class="spec-row"><span class="spec-k">البطارية</span><span class="spec-v">🔋 90 mAh</span></div>
+        <div class="spec-row"><span class="spec-k">الوزن</span><span class="spec-v">⚖️ 7.5 غرام فقط</span></div>
+        <div class="spec-row"><span class="spec-k">الأبعاد</span><span class="spec-v">📐 28 × 6.3 مم</span></div>
+        <div class="spec-row"><span class="spec-k">التردد</span><span class="spec-v">2.40–2.48 GHz</span></div>
+        <div class="spec-row"><span class="spec-k">التوافق</span><span class="spec-v">📱 Android & iOS</span></div>
+        <div class="spec-row"><span class="spec-k">الضمان</span><span class="spec-v">✅ 6 أشهر</span></div>
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="spec-photo">
+        <img src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=600&q=80" alt="specs" onerror="this.src='https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80'"/>
+        <div class="spec-photo-overlay"></div>
+        <div class="spec-photo-cap">REMAX RT-D01 · ابتكار لحياة أفضل</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-wrap">
+  <div style="max-width:1200px;margin:0 auto" class="reveal">
+    <div class="sec-tag tag-gold">⭐ آراء العملاء</div>
+    <h2 class="big-title">ماذا قال من<br><span style="color:var(--gold)">جرّبوه في المغرب؟</span></h2>
+    <p class="big-sub" style="margin-bottom:40px">آلاف المغاربة اختاروا REMAX RT-D01. إليك تجاربهم الحقيقية.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"كنت نضيع مفاتيحي كل نهار تقريباً! دابا نضغط في التطبيق وكنسمعه فوراً. شريت 3 للعيلة كلها."</p>
+      <div class="t-author"><div class="t-av">أ</div><div><div class="t-name">أحمد الإدريسي</div><div class="t-role">موظف · الدار البيضاء</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>"طالبة جامعية وحياتي فوضى! حطيته في الشانطة ديالي. الآن نعرف دائماً وين كلشي. خفيف جداً ما حسّيت بيه."</p>
+      <div class="t-author"><div class="t-av">ف</div><div><div class="t-name">فاطمة الزهراء</div><div class="t-role">طالبة · مراكش</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★☆</div>
+      <p>"نسيت المحفظة ديالي فالمكتب. التطبيق نبّهني قبل ما نوصل للبيت. الجهاز أنقذني من كارثة حقيقية!"</p>
+      <div class="t-author"><div class="t-av">م</div><div><div class="t-name">محمد بنعلي</div><div class="t-role">رجل أعمال · الرباط</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="price-wrap" id="pricing">
+  <div class="price-inner reveal">
+    <div class="price-badge">🔥 عرض خاص — المغرب فقط</div>
+    <div class="price-row">
+      <span class="p-old">599 درهم</span>
+      <span class="p-new">399</span>
+      <span class="p-cur">درهم</span>
+    </div>
+    <div class="p-save">💰 وفّر 200 درهم — خصم 33% حصري</div>
+    <div class="perks">
+      <span class="perk"><span>🚚</span><span>توصيل مجاني لكل المغرب</span></span>
+      <span class="perk"><span>💵</span><span>الدفع عند الاستلام</span></span>
+      <span class="perk"><span>📦</span><span>توصيل 2–4 أيام</span></span>
+      <span class="perk"><span>✅</span><span>ضمان 6 أشهر</span></span>
+    </div>
+    <div class="urgency">⚡ الكميات محدودة — احجز قطعتك قبل نفاد المخزون</div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap-out" id="order">
+  <div class="form-inner">
+    <div style="text-align:center;margin-bottom:36px" class="reveal">
+      <div class="sec-tag tag-blue" style="display:inline-flex;margin-bottom:14px">🛒 اطلب الآن</div>
+      <h2 style="font-family:'Tajawal',sans-serif;font-size:2.2rem;font-weight:900;margin-bottom:10px">أضمن طلبك في دقيقة</h2>
+      <p style="color:var(--grey);font-size:14px;line-height:1.8">أملأ النموذج وسيتصل بك فريقنا خلال 24 ساعة لتأكيد طلبك وترتيب التوصيل.</p>
+    </div>
+    <div class="form-card reveal">
+      <form id="orderForm">
+        <div class="fg"><label>الاسم الكامل <em>*</em></label><input type="text" id="f-name" placeholder="أدخل اسمك الكامل" required/></div>
+        <div class="fg"><label>رقم الهاتف <em>*</em></label><input type="tel" id="f-phone" placeholder="مثال: 0612345678" required/></div>
+        <div class="fg"><label>المدينة والعنوان <em>*</em></label><input type="text" id="f-address" placeholder="مثال: الدار البيضاء، مراكش، الرباط، فاس..." required/></div>
+        <div class="fg">
+          <label>الكمية</label>
+          <select id="f-qty">
+            <option>1 جهاز — 399 درهم</option>
+            <option>2 أجهزة — 750 درهم (وفّر أكثر)</option>
+            <option>3 أجهزة — الأكثر طلباً ⭐</option>
+          </select>
+        </div>
+        <div class="fg"><label>ملاحظات (اختياري)</label><input type="text" id="f-notes" placeholder="أي تفاصيل أو أسئلة..."/></div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="btnTxt">✅ أرسل طلبي الآن — 399 درهم</span>
+        </button>
+        <div class="form-trust">
+          <span class="trust-i">🔒 بياناتك آمنة</span>
+          <span class="trust-i">📞 تأكيد بالهاتف</span>
+          <span class="trust-i">💵 دفع عند الاستلام</span>
+        </div>
+      </form>
+      <div id="success-msg">
+        <div class="s-ico">🎉</div>
+        <h3>تم استلام طلبك!</h3>
+        <p>شكراً جزيلاً! سيتصل بك فريقنا خلال 24 ساعة لتأكيد الطلب وترتيب التوصيل إلى عنوانك في المغرب.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>REMAX RT-D01</strong> · توصيل لجميع مدن المغرب · الدفع عند الاستلام · ضمان 6 أشهر</p>
+  <p style="margin-top:6px">© 2026 جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+// Particles
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const s=Math.random()*6+3;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-delay:${Math.random()*8}s;animation-duration:${Math.random()*10+8}s;`;
+    c.appendChild(p);
+  }
+})();
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*70)});
+},{threshold:0.08});
+document.querySelectorAll('.reveal,.reveal-r').forEach(el=>obs.observe(el));
+
+// Google Apps Script URL
+const SCRIPT_URL="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+// Form
+document.getElementById('orderForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  const txt=document.getElementById('btnTxt');
+  txt.textContent='⏳ جاري الإرسال...';
+  btn.disabled=true;
+  const data={
+    name:document.getElementById('f-name').value,
+    phone:document.getElementById('f-phone').value,
+    address:document.getElementById('f-address').value,
+    quantity:document.getElementById('f-qty').value,
+    notes:document.getElementById('f-notes').value,
+    timestamp:new Date().toLocaleString('ar-MA')
+  };
+  try{
+    if(SCRIPT_URL!=="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"){
+      await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    }else{
+      await new Promise(r=>setTimeout(r,1400));
+    }
+    document.getElementById('orderForm').style.display='none';
+    document.getElementById('success-msg').style.display='block';
+  }catch(err){
+    txt.textContent='❌ حدث خطأ، حاول مجدداً';
+    btn.disabled=false;
+  }
+});
+</script>
+</body>
+</html>
