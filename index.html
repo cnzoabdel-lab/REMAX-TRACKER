@@ -533,7 +533,7 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal,.reveal-r').forEach(el=>obs.observe(el));
 
 // Google Apps Script URL
-const SCRIPT_URL="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxrTfBtC0BrZoiwSqoVCDPHeXkhOc1ZsopH3J8ucW7pGJ2qIRRjuKD8SqW2OyWpIzOe/exec";
   
 <form autocomplete="off">
   
@@ -553,7 +553,7 @@ document.getElementById('orderForm').addEventListener('submit',async function(e)
     timestamp:new Date().toLocaleString('ar-MA')
   };
   try{
-    if(SCRIPT_URL!=="https://script.google.com/macros/s/AKfycbzSesxiPz1NxYTpqGodSwk2_Nk97EetDbs0Pl7I_lEutsSfM1EA-qjuWDZFziHgri7z/exec"){
+    if(SCRIPT_URL!=="https://script.google.com/macros/s/AKfycbxrTfBtC0BrZoiwSqoVCDPHeXkhOc1ZsopH3J8ucW7pGJ2qIRRjuKD8SqW2OyWpIzOe/exec"){
       await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     }else{
       await new Promise(r=>setTimeout(r,1400));
